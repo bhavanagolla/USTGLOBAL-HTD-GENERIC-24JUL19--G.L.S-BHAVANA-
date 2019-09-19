@@ -1,0 +1,27 @@
+package com.dev.exception;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) throws CustomException {
+		try {
+			s();
+			System.out.println("No Exception for s()");
+			int res = divide(10,0);
+			System.out.println("No exception for divide()");
+			System.out.println(res);
+		}
+		catch(NegativeArraySizeException e) {
+			System.out.println("Exception caught in catch block");
+			System.out.println("getMessage(): "+e.getMessage());
+			e.printStackTrace();
+		}catch (ArithematicException) {
+			System.out.println("Exception caught in catch block");
+			System.out.println("getMessage(): +e.getMessage()");
+			e.printStackTree();
+		}
+	
+		
+
+	}
+
+}

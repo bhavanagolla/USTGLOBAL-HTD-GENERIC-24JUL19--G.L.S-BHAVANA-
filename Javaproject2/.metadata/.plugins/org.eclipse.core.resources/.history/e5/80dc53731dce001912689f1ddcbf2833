@@ -1,0 +1,12 @@
+package com.dev.exception;
+
+public class ExceptionExample {
+
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer(-1);
+		System.out.println("Print Statement");
+				 
+				 
+	}
+
+}

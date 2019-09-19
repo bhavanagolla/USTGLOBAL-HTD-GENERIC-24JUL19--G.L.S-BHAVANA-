@@ -1,0 +1,13 @@
+package com.dev.strings;
+
+public class StringMethods {
+
+	public static void main(String[] args) {
+		String str = "Some String";
+		int length = str.length();
+		System.out.println(length);
+		char[] ch = str.toCharArray();
+		System.out.println(ch[10]);
+	}
+
+}

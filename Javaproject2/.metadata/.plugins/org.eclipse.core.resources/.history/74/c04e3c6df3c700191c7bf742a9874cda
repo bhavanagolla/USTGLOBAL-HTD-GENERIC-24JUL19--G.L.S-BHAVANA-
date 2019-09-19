@@ -1,0 +1,19 @@
+package com.dev.inheritance;
+
+public class Father extends GrandFather {
+	
+	static Father f = new Father();
+	
+	public void printName() {
+		String name = "Ramana";
+		String name = "Bhavana";
+
+		System.out.println(name+" "+f.name+" "f.lastName);
+	}
+	public static void main(String[] args) {
+		f.printName();
+	
+
+		}
+
+}

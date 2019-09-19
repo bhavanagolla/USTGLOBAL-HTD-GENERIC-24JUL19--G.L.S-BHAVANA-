@@ -1,0 +1,26 @@
+package com.dev.collections;
+
+public class EmployeeImplements implements EmployeeInterface {
+	
+	
+
+	@Override
+	public boolean setEmployee(Employee employee) {
+		if (employee !=null)
+		return false;
+	}
+
+	@Override
+	public boolean getEmployee(Employee employee) {
+		if (employee !=null)
+		return false;
+	}
+
+	@Override
+	public void removeEmployee() {
+		if (employee!=null)
+			return true;
+		
+	}
+
+}

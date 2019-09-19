@@ -1,0 +1,43 @@
+package com.dev.exception;
+
+public class ExceptionalHandling {
+
+	public static void main(String[] args) {
+		try {
+			s();
+		}
+		catch (ExceptionalHandling e) {
+			System.out.println("Exception occured");
+			e.printStackTrace();
+		}
+	}
+	public static void  s() {
+		StringBuffer sb =new StringBuffer(-1);
+	}
+}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			\\\\\
+		}catch(Exception e)
+	}
+
+}

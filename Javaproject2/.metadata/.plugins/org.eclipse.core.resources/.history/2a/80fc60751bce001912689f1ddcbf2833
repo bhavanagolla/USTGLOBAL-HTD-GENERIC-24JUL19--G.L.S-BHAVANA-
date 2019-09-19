@@ -1,0 +1,12 @@
+package com.dev.exception;
+
+public class ExceptionExample {
+
+	public static void main(String[] args) {
+		double d = 10.0;
+		double b = 0.0;
+		System.out.println("Result: "+d/b);
+		
+	}
+
+}

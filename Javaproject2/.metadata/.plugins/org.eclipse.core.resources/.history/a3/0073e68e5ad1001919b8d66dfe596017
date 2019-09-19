@@ -1,0 +1,8 @@
+package com.dev.collections;
+
+public interface EmployeeInterface {
+	public boolean setEmployee(Employee employee);
+	public boolean getEmployee(Employee employee);
+	public void removeEmployee();
+
+}

@@ -1,0 +1,20 @@
+package com.dev.inheritance;
+
+public class GrandFather {
+	static GrandFather g = new GrandFather();
+	
+	String lastName ="Golla";
+	String name = "Bhavana";
+
+	public static void main(String[] args) {
+		g.printName();
+		
+	}
+	public void printName() {
+		String name = "Bhavana";
+		System.out.println(name+ " "+g.lastName );
+		
+		
+	}
+
+}

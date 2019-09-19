@@ -1,0 +1,85 @@
+package com.dev.inheritance;
+
+public class BasicOperations {
+	static BasicOperations b = new BasicOperations();
+		public int operations(int a,int b) {
+		int add =a+b;
+		System.out.println("add: "+add);
+		return 1;
+		}	
+		public int operations(int a,int b,int c) {
+			int add =a+b+c;
+			System.out.println("add: "+add);
+			return 1;
+		}
+		public int operations(int a,int b,int c,int d) {
+			int add =a+b+c+d;
+			System.out.println("add: "+add);
+			return 1;
+		}
+	public float operations(float k,int m) {
+		float sub =k-c;
+		System.out.println("sub: "+sub);
+		return 1.14f;
+	}
+	
+	public float operations(float k, int m,int n) {
+		float sub =k-m-n;
+		System.out.println("sub: "+sub);
+		return 1.14f;
+	}
+	
+	public float operations(float k,int m,int n,float o) {
+		float sub =k-m-n-o;
+		System.out.println("sub: "+sub);
+		return 1.14f;
+	}
+	
+	public double operations(int e,double d) {
+		double mul= e*d;
+		System.out.println("mul: "+mul);
+		return 1;
+	}
+	
+	public double operations(int e,double d,int f) {
+		double mul= e*d*f;
+		System.out.println("mul: "+mul);
+		return 1;
+	}
+	public double operations(int e,double d,int f,float g) {
+		double mul= e*d*f*g;
+		System.out.println("mul: "+mul);
+		return 1;
+	}
+	
+	
+	public double operations(double f,int i) {
+		double div=(f/i);
+		System.out.println("div: "+div);
+		return 1;
+	}
+	public double operations(double f,int i,int j) {
+		double div=(f/i)/j;
+		System.out.println("div: "+div);
+		return 1;
+	}
+	public double operations(double f,int i,int j,double d1) {
+		double div=(f/i)/(j/d1);
+		System.out.println("div: "+div);
+		return 1;
+	}
+
+	
+	public static void main(String[] args) {
+		b.operations(3.2454,5);
+		b.operations(4.4578, 8);
+		b.operations(8.455, 4);
+		b.operations(5.4553, 8, 7);
+		b.operations(8.5343, 7);
+		b.operations(5,5);
+		b.operations(5.123,5,6,5.214);
+		
+		
+	}
+
+}

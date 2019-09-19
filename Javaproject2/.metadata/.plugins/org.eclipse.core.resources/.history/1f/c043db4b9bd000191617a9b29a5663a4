@@ -1,0 +1,25 @@
+package com.dev.collections;
+
+public class EmployeeImplements implements EmployeeInterface {
+	
+	
+
+	@Override
+	public boolean setEmployee(Employee employee) {
+		if (employee !=)
+		return false;
+	}
+
+	@Override
+	public boolean getEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void removeEmployee() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

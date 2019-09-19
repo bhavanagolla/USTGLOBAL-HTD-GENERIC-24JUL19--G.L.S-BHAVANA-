@@ -1,0 +1,34 @@
+package com.dev.collections;
+import java.util.HashSet;
+
+
+public class EmployeeImplements implements EmployeeInterface {
+	HashSet<Employee>hs =new HashSet<Employee>();
+	
+
+	@Override
+	public boolean setEmployee(Employee employee) {
+		if (employee !=null) {
+			hs.add(employee);
+		return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean getEmployee(Employee employee) {
+		if (employee !=null) {
+			hs.remove(employee);
+		return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void removeEmployee() {
+		Object employee = null;
+	
+		
+	}
+
+}

@@ -1,0 +1,8 @@
+#grade{
+    height: 300px;
+    background:linear-gradient(red, yellow,blue,black);
+}
+#grade1{
+    height: 400px;
+    background:linear-gradient(red, yellow,blue,black);
+}

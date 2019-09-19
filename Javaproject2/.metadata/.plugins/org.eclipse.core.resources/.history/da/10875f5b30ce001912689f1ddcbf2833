@@ -1,0 +1,26 @@
+package com.dev.exception;
+
+public class ExceptionalHandling {
+
+	public static void main(String[] args) {
+		try {
+			s();
+		}
+		catch (Exception e) {
+			System.out.println("Exception occured");
+			e.printStackTrace();
+		}
+		finally {
+			System.out.println("this is finally block");
+		}
+		System.out.println("even progera");
+	}
+	public static void  s() {
+		StringBuffer sb =new StringBuffer(-1);
+	}
+}
+
+		
+	}
+
+}

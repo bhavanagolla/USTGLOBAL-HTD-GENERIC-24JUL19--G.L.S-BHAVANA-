@@ -1,0 +1,14 @@
+package com.dev.exception;
+
+public class ExceptionalHandling {
+
+	public static void main(String[] args) throws Exception,NegativeArraySizeException {
+		s();
+		System.out.println("code after the exception");
+	}	
+	public static void  s() throws Exception,NegativeArraySizeException {
+		StringBuffer sb =new StringBuffer(-1);//throws exception
+	}
+}
+
+	

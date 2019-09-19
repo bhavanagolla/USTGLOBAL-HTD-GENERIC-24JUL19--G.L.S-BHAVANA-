@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var numbervalue = 10;
+        var numbervalue1 ='10';
+        if(numbervalue===numbervalue1){
+            console.log("equal");
+        }else{
+            console.log("not equal");
+        }
+        console.log("=============================");
+        var typeofnumber = typeof numbervalue;
+        var typeofnumber1 = typeof numbervalue1;
+        console.log(typeofnumber);
+        console.log(typeofnumber1);
+        var num1;
+        console.log(typeofnumber);
+        var num2 = null;
+        console.log(typeofnumber);
+        var booleanvalue = true;
+        console.log(typeofnumber);
+        console.log("=============================");
+        var age = 21;
+       var checkage = (age>21)?'greater':(age===21)?'equal':'lesser';
+       console.log(checkage);
+       console.log("================================");
+       var employees = [
+           {
+               name : 'varun',
+               age : 29
+           },
+           {
+               name : 'deepika',
+               age : 34
+           },
+           {
+               name : 'bhagat singh',
+               age : 90
+           }
+       ]
+       for(var i=0;i<employees.length;i++)
+       {
+           console.log(employees[i]);
+       }
+       console.log("=======================");
+       var hobbies = ['crcicket','painting','travelling','dancing'];
+       for(var value of hobbies){
+           console.log('hobbies using of loop '+value);
+       }
+       for(var index in hobbies){
+
+           console.log('hobbies using of loop '+index);
+       }
+       var person = {
+                   name : 'bhavana',
+                   age : 21
+       }
+       console.log("==========================");
+       
+     
+        </script>
+</body>
+</html>

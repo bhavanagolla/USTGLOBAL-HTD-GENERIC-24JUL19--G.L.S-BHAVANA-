@@ -1,0 +1,19 @@
+package com.dev.exception;
+
+public class ExceptionExample {
+
+	public static void main(String[] args) {
+		t();
+		System.out.println("Print Statement");
+				 
+				 
+	}
+	public static void s() {
+		StringBuffer sb = new StringBuffer(-1);
+	}
+	public static void t() {
+		StringBuffer sb = new StringBuffer(-1);
+	}
+
+
+}

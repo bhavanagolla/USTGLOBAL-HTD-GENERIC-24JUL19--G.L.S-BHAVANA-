@@ -1,0 +1,789 @@
+1> write a query to display all the records of an employee whose name 3rd character should be t and 5th character should be i?
+   select * from employee_info where name like '%t_i_';
++----+--------+-------+-------------+----------+------+------------+------+--------+--------+------------+
+| id | name   | email | designation | mobileno | age  | dob        | doj  | salary | deptid | bloodgroup |
++----+--------+-------+-------------+----------+------+------------+------+--------+--------+------------+
+|  8 | jithin | NULL  | NULL        |     NULL | NULL | 2000-12-10 | NULL |   NULL |     30 | NULL       |
+
+//NOT LIKE OPERATOR: It is used to select all the string donot match with the given string
+
+2> write a query to display excluding whose name starts with 'j'?
+
+    select * from employee_info name where name not like 'j%';
+
+
+===========================FUNCTIONS===================================
+* Function is a block of code which performs a specific task.
+   Functions are predefined actions.
+
+-->Function Attributes: It has input argument, function name and return type.
+     They are of two types of functions:
+	1.Scalar function/ Single Row Function
+	2.Aggregate function/ Multi Row Function
+
+--->Aggregate Function:In aggregate function we can pass more than one input but the output will be the one.
+	They are few types of aggregate function
+	1.Avg()- Returns the avg value.
+	2.Count()-It counts the number of rows.
+	3.Max()- Returns maximum value of the selected column.
+	4.Min()- Returns minimum value of the selected column.
+	5.Sum()- Returns the sum of all the values of the selected column.
+
+3> write a query to display avergae salary of an employee.
+select avg(salary) from employee_info;
++-------------+
+| avg(salary) |
++-------------+
+|       12345 |
++-------------+
+4>write a query to display minimum salary,maximum salary and sum of salary.
+select sum(salary),max(salary),min(salary) from employee_info;
++-------------+-------------+-------------+
+| sum(salary) | max(salary) | min(salary) |
++-------------+-------------+-------------+
+|       86415 |       12345 |       12345 |
++-------------+-------------+-------------+
+ select sum(salary),max(salary),min(salary),count(salary) from employee_info;
++-------------+-------------+-------------+---------------+
+| sum(salary) | max(salary) | min(salary) | count(salary) |
++-------------+-------------+-------------+---------------+
+|       86415 |       12345 |       12345 |             7 |
++-------------+-------------+-------------+---------------+
+select sum(salary) sum,max(salary) max,min(salary) min,count(salary) count from employee_info;
++-------+-------+-------+-------+
+| sum   | max   | min   | count |
++-------+-------+-------+-------+
+| 86415 | 12345 | 12345 |     7 |
++-------+-------+-------+-------+//by aliasing the names
+===========================ASSIGNMENT-1========================
+select * from employee;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |   NULL |     10 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |   NULL |     20 | A+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |   NULL |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |   NULL |     20 | A+ve       |
+|  5 | ashish     | ashish@gmail.com     | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |   NULL |     30 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |   NULL |     20 | o+ve       |
+|  7 | harshith   | harshith@gmail.com   | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |   NULL |     30 | o+ve       |
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |   NULL |     10 | o+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+1>write a query to display all the details of the developer in dept 10
+select * from employee where designation='developer'and deptId=10;
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name    | email             | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana | bhavana@gmail.com | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |   NULL |     10 | o+ve       |
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+2>write a query to display the list for all the software developer in deptno 40 and having salary greater than 5000.
+select * from employee where designation='developer'and deptId=30 and salary>50000;
+Empty set (0.00 sec)
+3>write a query to display list all the employees except those who are working in deptno 10 and 20.
+select * from employee where deptId not in (10,20);
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name     | email              | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  5 | ashish   | ashish@gmail.com   | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |  20000 |     30 | A+ve       |
+|  7 | harshith | harshith@gmail.com | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+4>write a query to display list the employees who are not working as software developer and sales in deptID 10,20 with salary between 10000 and 30000
+ select * from employee where designation not in('developer','sales') and deptId in(10,20) and salary between 10000 and 30000;
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name     | email              | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  3 | akshitha | akshitha@gmail.com | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+-----
+5> write a query to display the list of employees whose salary is not in the range of 10000 and 20000 in deptId 10,20,30 except all salesman
+ select * from employee where salary not between 10000 and 20000 and deptId in(10,20,30) and designation <>'salesman';
++----+-----------+---------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name      | email               | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+-----------+---------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  2 | jithin    | jithin@gmail.com    | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  6 | brinda    | brinda@gmail.com    | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  7 | harshith  | harshith@gmail.com  | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
+|  8 | deekshith | deekshith@gmail.com | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
++----+-----------+---------------------+-------------+-----------+------+------------+------------+--------+--------+-------------
+6>write a query to arrange all the employees by there salary in descending order
+select * from employee order by salary desc;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  7 | harshith   | harshith@gmail.com   | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  5 | ashish     | ashish@gmail.com     | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |  20000 |     30 | A+ve       |
+7>write a query to display max and min salary total salary from employee table
+select max(salary),min(salary),sum(salary) from employee;
++-------------+-------------+-------------+
+| max(salary) | min(salary) | sum(salary) |
++-------------+-------------+-------------+
+|       50000 |       20000 |      260000 |
++-------------+-------------+-------------+
+8>write a query to display the list of number of developers in deptId 20
+ select count(designation) from employee where designation='developer' and deptId=20;
++--------------------+
+| count(designation) |
++--------------------+
+|                  0 |
++--------------------+
+9>write a query to display the list of highest and lowest salary earned by salesman
+select max(salary),min(salary) from employee where designation='salesman';
++-------------+-------------+
+| max(salary) | min(salary) |
++-------------+-------------+
+|       40000 |       20000 |
++-------------+-------------+
+10>write a query to display the total salary of all deptid's
+ select sum(salary) from employee where deptId in(10,20,30,40);
++-------------+
+| sum(salary) |
++-------------+
+|      260000 |
++-------------+
+=================================Assignment-2============================================
+1>write a query to display the employees working in dept20
+select * from employee where deptId=20;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+-----
+2>write a query to display the employees earning more tham 6000
+ select * from employee where salary>6000;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  5 | ashish     | ashish@gmail.com     | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |  20000 |     30 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  7 | harshith   | harshith@gmail.com   | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
+3>write a query to display all the employees whose job type is developer
+ select * from employee where designation='developer';
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name    | email             | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana | bhavana@gmail.com | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--
+4>write a query to display all employees working in deptId 10,20,40
+select * from employee where deptId in(10,20,40);
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+-----
+5>write a query to display all employee details whose name is starts with s
+ select * from employee where name like's%';
+Empty set (0.00 sec)
+6>write a query to display all employees whose name second character is a
+ select * from employee where name like'_a%';
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name     | email              | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  7 | harshith | harshith@gmail.com | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+7>write a query to display all the employees whose name having atleast 2 a's
+select * from employee where name like'%a%a%';
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name     | email              | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana  | bhavana@gmail.com  | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  3 | akshitha | akshitha@gmail.com | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+8>write a query to  display whose name second letter should be i
+ select * from employee where name like'_i%';
++----+--------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | name   | email            | designation | mobileno | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+--------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+|  2 | jithin | jithin@gmail.com | analyst     | 97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
++----+--------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+9>write a query to display all the employees who are having exactly 5 characters in their name
+> select * from employee where name like'_____';
+Empty set (0.00 sec)
+10>write a query to display all the employees whose salary between 20000 and 30000
+ select * from employee where salary between 20000 and 30000;
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name     | email              | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana  | bhavana@gmail.com  | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  3 | akshitha | akshitha@gmail.com | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  5 | ashish   | ashish@gmail.com   | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |  20000 |     30 | A+ve       |
+|  7 | harshith | harshith@gmail.com | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
++----+----------+--------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+
+================================End of assignment======================================
+1>write a query to display no of employees had doj after 2016.
+ select count(*) from employee where doj>'2018-04-12';
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+2>write a query to display avg sal and highest sal of dept 20,30,40.
+ select avg(salary),max(salary) from employee where deptId in(20,30,40);
++--------------------+-------------+
+| avg(salary)        | max(salary) |
++--------------------+-------------+
+| 31666.666666666668 |       40000 |
++--------------------+-------------+
+3>write a query to display date of firts and last hired employee
+select min(doj),max(doj)from employee;
++------------+------------+
+| min(doj)   | max(doj)   |
++------------+------------+
+| 2017-07-12 | 2019-08-24 |
++------------+------------+
+
+===================================Scalar functions==================
+Scalar Functions:It indicates the single input for a particular functions and corresponds the single output.
+		1.upper()-it converts the value of a field into uppercase.
+		2.lower()-it converts the value of a field into lowercase.
+		3.length()-function returns the length of the value
+		4.Concat()-is used to concate two strings.
+		5.Reverse()-function is use to reverse of a string.
+=====> Case Manipulation
+	1.Upper
+	2.Lower
+	3.Initcap-it doesnt support in mysql but it is supported in oracle software.
+======>Character Manipulaton
+	1.Length
+	2.Concat-it is used to concatinate two strings.
+		Syntax:-concat(arg1,arg2);
+	3.Reverse-function is used to reverse the string.
+	4.Sub_str-it is a function used to extract from a given string.It accepts three arguments.
+		Syntax:-select substr(string,posistion,length)from table_name;
+	======>Arg1-It fetches the position of a string.
+	======>Arg2-It is the number from where which specifies the numberin a string.
+	======>Arg3-It specifies the length of new string.
+	5.Instring-It is used to check whether a substring is present into the given string.
+		   If a substring is  not present in the string then the function will return to '0'.
+		Syntax: select instr(string,substring) from table_name
+	=======>Arg1-it is a string in which has to be search
+	6.Replace-It is used to replace a character or a string in a given string.
+		Syntax: select replace(string,substring,substring);
+1>write  a query to display upper and lower name in employee
+select upper(name),lower(name) from employee;
++-------------+-------------+
+| upper(name) | lower(name) |
++-------------+-------------+
+| BHAVANA     | bhavana     |
+| JITHIN      | jithin      |
+| AKSHITHA    | akshitha    |
+| DEEKSHITHA  | deekshitha  |
+| ASHISH      | ashish      |
+| BRINDA      | brinda      |
+| HARSHITH    | harshith    |
+| DEEKSHITH   | deekshith   |
++-------------+-------------+
+2>write a query to display length of a name.
+ select length(name) from employee;
++--------------+
+| length(name) |
++--------------+
+|            7 |
+|            6 |
+|            8 |
+|           10 |
+|            6 |
+|            6 |
+|            8 |
+|            9 |
++---------------
+3> write a query to merge name and salary.
+select concat(name,salary) from employee;
++---------------------+
+| concat(name,salary) |
++---------------------+
+| bhavana20000        |
+| jithin40000         |
+| akshitha20000       |
+| deekshitha40000     |
+| ashish20000         |
+| brinda40000         |
+| harshith30000       |
+| deekshith50000      |
++---------------------+	
+4>write a query to reverse the string.
+ select reverse(name) from employee;
++---------------+
+| reverse(name) |
++---------------+
+| anavahb       |
+| nihtij        |
+| ahtihska      |
+| ahtihskeed    |
+| hsihsa        |
+| adnirb        |
+| htihsrah      |
+| htihskeed     |
++---------------+
+5>write a query to display the name of all emplooyees onlt the three character
+ select substr(name,1,3) from employee;
++------------------+
+| substr(name,1,3) |
++------------------+
+| bha              |
+| jit              |
+| aks              |
+| dee              |
+| ash              |
+| bri              |
+| har              |
+| dee              |
++------------------+
+6>write a query to display all the detail of employees whose name begin with consonant
+ select substr(name,1,1)not in('a','e','i','o','u') from employee;
++---------------------------------------------+
+| substr(name,1,1)not in('a','e','i','o','u') |
++---------------------------------------------+
+|                                           1 |
+|                                           1 |
+|                                           0 |
+|                                           1 |
+|                                           0 |
+|                                           1 |
+|                                           1 |
+|                                           1 |
++---------------------------------------------+
+select * from employee where substr(name,1,1) not in('a','e','i','o','u');
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  7 | harshith   | harshith@gmail.com   | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+7> write a query to search the position of 'a' in name column.
+ select instr(name,'a') from employee;
++-----------------+
+| instr(name,'a') |
++-----------------+
+|               3 |
+|               0 |
+|               1 |
+|              10 |
+|               1 |
+|               6 |
+|               2 |
+|               0 |
++-----------------+
+8>write a query to replace where 'a' in present in the name'z'
+select replace(name,'a','z') from employee;
++-----------------------+
+| replace(name,'a','z') |
++-----------------------+
+| bhzvznz               |
+| jithin                |
+| zkshithz              |
+| deekshithz            |
+| zshish                |
+| brindz                |
+| hzrshith              |
+| deekshith             |
++-----------------------+
+9>write a query to display no:of employee whose is working in deptId 20 salary is greater than 15000
+select * from employee where deptId =20 and salary>15000;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+-------------------------------
+or
+select count(*) from employee where deptId=20 and salary=15000;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+/////using count function;
+=======================End of Functions====================================
+1>Group by Clause:-
+##The group by statement group rows that have the same values into summary rows.
+## the group by statement is often used with aggregte functions (count,max,min,sum,avg) to group the result-set bybone or more columns
+	SYNTAX: select column_name(s)
+		from table_name
+		where condition
+		groupby column_names;
+	Example: select count(*)
+		 from employee
+		 group by deptId;
+NOTE:group by  clause executes row by row . after execution of group by the records are grouped .therefore, all the clausee will execute  after the execution of groupby clause.
+     group by execute first.
+Order of execution:
+1.from
+2.where
+3.groupby
+4.select
+## Groupby clause is often executed by aggregate function.
+
+
+1>write a query to display highest salary in each department
+select max(salary),deptId,count(*) from employee group by deptId;
++-------------+--------+----------+
+| max(salary) | deptId | count(*) |
++-------------+--------+----------+
+|       50000 |     10 |        2 |
+|       40000 |     20 |        4 |
+|       30000 |     30 |        2 |
++-------------+--------+----------+
+2>write a query to display no:of software developer in each department
+select count(*),deptId from employee where designation='developer' group by deptId;
++----------+--------+
+| count(*) | deptId |
++----------+--------+
+|        1 |     10 |
++----------+--------+
+3> write a query  to display no:of employees hired on each date
+select count(*) from employee group by doj;
++----------+
+| count(*) |
++----------+
+|        1 |
+|        1 |
+|        1 |
+|        2 |
+|        1 |
+|        1 |
+|        1 |
++----------+
+or
+select count(*),name from employee group by doj;
++----------+------------+
+| count(*) | name       |
++----------+------------+
+|        1 | deekshith  |
+|        1 | brinda     |
+|        1 | harshith   |
+|        2 | deekshitha |
+|        1 | akshitha   |
+|        1 | bhavana    |
+|        1 | jithin     |
++----------+------------+
+or
+ select count(*),name,doj from employee group by doj;
++----------+------------+------------+
+| count(*) | name       | doj        |
++----------+------------+------------+
+|        1 | deekshith  | 2017-07-12 |
+|        1 | brinda     | 2018-07-02 |
+|        1 | harshith   | 2018-07-12 |
+|        2 | deekshitha | 2018-07-24 |
+|        1 | akshitha   | 2018-08-24 |
+|        1 | bhavana    | 2019-07-24 |
+|        1 | jithin     | 2019-08-24 |
++----------+------------+------------+
+4>write a query to display minimum salary in each designation
+ select min(salary) from employee group by designation;
++-------------+
+| min(salary) |
++-------------+
+|       40000 |
+|       20000 |
+|       20000 |
+|       40000 |
+|       20000 |
++-------------+
+===========================End of GroupBy clause===============================
+HAVING CLAUSE:-
+* Having clause is often used with the group by clause to filter groups based on the specified condition.
+* In having clause we can use only use an column
+SYNTAX:-select column_name
+	from table_name
+	where condition group by column_name
+	having condition;
+order of execution:-
+	1.from
+	2.where
+	3.groupby
+	4.having
+	5.select
+NOTE:-1.Having clause executes after the execution oof groupby clause.Therefore, it check the given condition after grouping.
+      2.Since it executes  after grouping , having caluse executes group by group
+      3.Having clause can be used in one column that is used in groupby.
+
+1>write a query to display deptId that has atleast 4 working employees.
+select deptId from employee group by deptId having count(*)>4;
+Empty set (0.00 sec)
+2>write a query to display deptId which has total salary greater than 20000
+ select deptId,sum(salary) from employee group by deptId having sum(salary)>20000;
++--------+-------------+
+| deptId | sum(salary) |
++--------+-------------+
+|     10 |       70000 |
+|     20 |      140000 |
+|     30 |       50000 |
++--------+-------------+
+3> write a query to display the deptID and avg salary of all the departments whose avg salary >20000 excluding the employee whose name begins with 's'
+ select deptId,avg(salary),name from employee where name not like 's%' group by deptId having avg(salary)>20000;
++--------+-------------+---------+
+| deptId | avg(salary) | name    |
++--------+-------------+---------+
+|     10 |       35000 | bhavana |
+|     20 |       35000 | jithin  |
+|     30 |       25000 | ashish  |
++--------+-------------+---------+
+ select deptId,avg(salary),name,designation from employee where name not like 's%' group by deptId having avg(salary)>20000;
++--------+-------------+---------+-------------+
+| deptId | avg(salary) | name    | designation |
++--------+-------------+---------+-------------+
+|     10 |       35000 | bhavana | developer   |
+|     20 |       35000 | jithin  | analyst     |
+|     30 |       25000 | ashish  | clerk       |
++--------+-------------+---------+-------------+
+===============================End of Having Clause===========================================
+ORDER BY CLAUSE:-
+*The order by keyword is used to sort the result-set in ascending  order and descending order.
+*The order by keyword sorts the records in ascending order by default.To sort the records in descending order , use the desc keyword.
+SYNTAX:- select column1,column2... from table_name
+	orderby column1, column2....asc/desc;
+order of execution:
+	1.from
+	2.where
+	3.group by
+	4.having
+	5.select
+	6.order by
+NOTE:-order by clause always executes after execution of select.order by clause should be always last clause to be written in the syntax.
+      If the group clause is used then order by clause we can use aggregate function/multirow function and only the column name which is used in group by clause.
+
+1> write a query to display all the details where salary details should be in desc order
+select * from employee order by salary desc;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  7 | harshith   | harshith@gmail.com   | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  5 | ashish     | ashish@gmail.com     | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |  20000 |     30 | A+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+select * from employee order by salary asc;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  5 | ashish     | ashish@gmail.com     | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |  20000 |     30 | A+ve       |
+|  7 | harshith   | harshith@gmail.com   | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+by default it takes as ascending order
+select * from employee order by salary;
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name       | email                | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana    | bhavana@gmail.com    | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
+|  3 | akshitha   | akshitha@gmail.com   | salesman    | 978965342 |   18 | 1997-04-09 | 2018-08-24 |  20000 |     20 | A+ve       |
+|  5 | ashish     | ashish@gmail.com     | clerk       | 978965340 |   23 | 1996-05-09 | 2018-07-24 |  20000 |     30 | A+ve       |
+|  7 | harshith   | harshith@gmail.com   | clerk       | 978946340 |   23 | 1996-09-09 | 2018-07-12 |  30000 |     30 | o+ve       |
+|  2 | jithin     | jithin@gmail.com     | analyst     |  97896534 |   19 | 1999-04-09 | 2019-08-24 |  40000 |     20 | A+ve       |
+|  4 | deekshitha | deekshitha@gmail.com | salesman    | 978965349 |   22 | 1997-05-09 | 2018-07-24 |  40000 |     20 | A+ve       |
+|  6 | brinda     | brinda@gmail.com     | hr          | 978945340 |   23 | 1996-07-09 | 2018-07-02 |  40000 |     20 | o+ve       |
+|  8 | deekshith  | deekshith@gmail.com  | analyst     | 978946320 |   25 | 1996-09-06 | 2017-07-12 |  50000 |     10 | o+ve       |
++----+------------+----------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+2> write a query to display employee name,designation,doj for all employees who are working in either any of the departments 10,20,30,40. sort the records in descending order of their salary.
+ select name,designation,doj,salary,deptId from employee where deptId in(10,20,50,60) group by salary order by salary desc;
++-----------+-------------+------------+--------+--------+
+| name      | designation | doj        | salary | deptId |
++-----------+-------------+------------+--------+--------+
+| deekshith | analyst     | 2017-07-12 |  50000 |     10 |
+| jithin    | analyst     | 2019-08-24 |  40000 |     20 |
+| bhavana   | developer   | 2019-07-24 |  20000 |     10 |
++-----------+-------------+------------+--------+--------+
+3> write a query to display deptId along with no:of employees in it.
+ select deptId,count(*) from employee group by deptId;
++--------+----------+
+| deptId | count(*) |
++--------+----------+
+|     10 |        2 |
+|     20 |        4 |
+|     30 |        2 |
++--------+----------+
+4> write a query to display all the details of employee whose desgnationis tester and software developer
+ select * from employee where designation in('developer','tester');
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+| id | name    | email             | designation | mobileno  | age  | dob        | doj        | salary | deptId | bloodgroup |
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+|  1 | bhavana | bhavana@gmail.com | developer   | 123456789 |   21 | 1998-04-09 | 2019-07-24 |  20000 |     10 | o+ve       |
++----+---------+-------------------+-------------+-----------+------+------------+------------+--------+--------+------------+
+====================================== End of order by clause=============================
+SUB QUERY:
+*A query inside a query is known as "subquery".Sub query is also known as inner qeury or nested query.Subquery is also another way to fetch the data from multiple table.
+*Sub query must be encloses with ().
+NOTE:- Always inner query should executes first and the output of inner query is taken as input for the outer query the final result we will get from the outer query.
+1>when to use subquery in where clause?
+scenario 1>If the given condition contain unknown value then we can use sub query to obtain the unknown value.
+scenario 2>If the column to be selected and that condition to be filtered a give for two different tables we can use sub query.
+Subqueries are of two types:
+	1.Single row subquery
+	2.Multi row subquery
+1>Single Row Subquery:
+*If the single value operators such as equalto,less than,greater than,lessthan or equalto,greaterthan or equalto and not equal to(=,<,>,<=,>=,!=) are used.
+* single row subquery must and should return a single record.
+SYNTAX: select column1,column2,...from table where column1 operator
+	(select column from table where expr1=value);
+2>Multi Row Subquery:
+*If the operator such as multi value operator(IN) are used.
+*we call it as "Multi Row Subquery".
+*Multi Row Subquery can return one or more numbers of rows.
+SYNTAX:select column1,column2,... from table where column1 operator
+       (select column from table where expr1=value);
+
+1> write a query to display name of the employee who is working for research department
+select name from employee where deptId=(select deptId from deptId_info where dname='research');
+2> write a query to display the name of employee whose is working in location which has atleast 1'a' character should be present
+select name from employee where deptId in(select deptId from deptId_info where location like'%a%');
+3> write a query obtain second maximum salary from the employee
+select max(salary) from employee where salary<(select max(salary) from employee);
+4>write a query to display third maximum salary
+select max(salary) from employee where salary <(select max(salary) from employee where salary <(select max(salary) from employee))
+===========================SUBQUERY==================================
+JOINS:
+* joins used to fetch the data from two or more tables.
+*It is used for combining column from two or more tables by using values common the tables.
+*Merging of more than one table horizantally is known as joins.
+*Join keyword is used in sql queries for joining two or more tables.
+		CROSS JOINS:This type of join returns the cartesian product of rows from the tables in join.
+				Syntax:- select column-name-list	
+					 from table_name1 CROSSJOIN table-name1;
+				*in other words it gives us combinations of each row of first table with all the records in second
+					> write a query to display all the records using cross join
+						select * from employee cross join deptId_info
+
+		INNERJOIN: Joining the two tables with the help of join column is known as inner join. 
+				Syntax: select * from table1 innerjoin table2 on condition.(my sql syntax)
+					T1A1=T2A2
+		OUTERJOIN: They are of three types
+			1.Leftouter join : It gives inner join +unmatched record of left table.
+				         (unmatched record: The record donot have pairing the opposite table w.r.t joins)
+			   Syntax: select * from table1 leftouterjoin table2 on condition;
+				Query: select * from employee  left outer join deptid_info 
+				           on deptid_info.deptId =  employee.deptId;
+			2.Rightouter join : It gives innerjoin + unmatched recored of right table.
+	  		   Syntax: select * from table1 rightouterjoin table2 on condition;
+				Query: select * from employee  right outer join deptid_info 
+				           on deptid_info.deptId =  employee.deptId;
+			3.Full outer join : combination of left outer join+ right outer join.
+			                            If the innerjoin as well as all the record from both the table who do not have any pair.
+					select * from table1 full outer join table2 on condition.
+
+************************************************************************************************************************************************************
+KEY IN RDBMS:
+				1) Key Attributes : A key attribute is used to find an attribute using which we can uniquely determine a record in a table.
+				2) Non-KeyAttributes :  All the attributes except key attribute are known as non-key Attributes .
+				3) prime Key Attributes : A key attributes which is choosen to be a main attributes to determine the record uniquely in the table.
+				4) Non-Prime Attributes: A key attributes which is not choosen to be a main attributes to determine the record uniquely in the table.
+				5) Composite Key Attributes : Combination of two or more attributes which determine records uniquely is kanown as Composite key.
+				6) Foreign key : It is used to relate two tables.It is like a condition checking before saving data into a column.it can accept null and duplicate values.
+
+*************************************************************************************************************************************************************
+
+FUNCTIONAL DEPENDENCY:  
+			1. In a functional dependency a relation exists such that an attribute determines another attribute uniqeuly is known as functinal dependency.
+				ex:R={x,y}
+				     Y is dependent upon x.
+				     x,y are attributes.
+				     y-> dependent
+				     x-> determinant.
+			Types of functional dependency:
+					1.Total functional dependency : All the attributes of a relation determine by a key attribute is known Total functional dependency.
+							ex: R1--->{a,b,c,d}
+								a-->c00
+								a-->b
+								a-->d
+					2. Partial Functional dependency : A relation is said to have partial functional dependency first it consists of partial key attribute
+								 there exists a dependency such that an attribute can be determined by another attribute which is 
+								 part of composite key.
+							ex: R={a,b,c,d}
+								a,b is key attribute
+								a,b-->c,d
+								ab-->c
+								ab-->d
+								a-->c
+					3. Transitive Functional dependency : A relation is said to be transitive functional dependency , if there exist an relation such that an attribute
+								       is determine by non key attribute which inturns determines by the key attribute.
+							ex: R={a,b,c,d}
+								a-->c
+								c-->d	
+								a-->d
+
+***********************************************************************************************************************************************************
+NORMALIZATION: The process of decomposing the table into smaller table inorder to remove the redundancy and anamoly by identifying dependencies is known as Normalization.
+								(OR)
+		The process of reducing the table into normal forms is known as Normalization.
+DRAWBACKS:
+
+		1. Data Redundancy(Repitition)
+		2. Anamoly : The side effect that offer while performing the DML operation is done.
+				Types of Anamolies are :insert, update and delete.
+NORMAL FORM: 
+		1) A state of table without table redundancies and anamolies is known as NormalForms.
+
+TYPES OF NORMAL FORM:
+	
+			a) 1NF : A table is said to be in the 1NF if they satisfy the following condition
+				1. table should not have duplicate rows 
+				2. Every cell in the table should be a single value(atomic value)
+			b)2NF : In the 2NF
+				1. The table should have 1NF
+				2. The table should not have partial functional dependency(composite key)
+			 NOTE : If the table consists of partial functional dependency the attribute which are responisble from the table.
+			c) 3NF: In the 3NF
+				1. The table should have 2NF.
+				2. The table should not have transitive functional dependency.
+			NOTE: 1,2 and 3NF these are based on key attributes and functional dependencies on relational schema.
+			NOTE: 
+			d) BCNF
+			e) 4NF
+*************************************************************************************************************************************************************
+ER DIAGRAMS:(ENTITY RELATIONSHIP DIAGRAMS):
+			1. In relationship diagram describe the structure of database with the help of diagram which is known as ER diagram.
+			2. ER diagram is a blue print of database that can be later use to implement database.
+	Component of ER diagram:
+				1. Attribute : it will represent in eclipse and we underline the attribute the it is known as primary key.
+				2. Entity: it will represent in rectangular box which declares the table name.
+				3. Relation ship: it will represent in the diamond box.
+				4. If we draw the single line  it combines all the components.
+	They are four types of relationships:
+				1. one-one
+				2. one-many
+				3. many-one
+				4. many-many.
+
+		
+			
+		
+
+					
+
+
+
+			
+					

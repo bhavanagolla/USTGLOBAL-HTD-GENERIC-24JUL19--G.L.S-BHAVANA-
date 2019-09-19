@@ -1,0 +1,31 @@
+package com.dev.collections;
+
+import com.dev.encapsulation.Dog;
+
+import.java.util.HashMap;
+
+com.dev.encapsulation.Dog;
+
+public class C3 {
+
+	public static void main(String[] args) {
+		
+		Dog d =new Dog();
+		d.setAge(1);
+		d.setBreed("Saint bernard");
+		d.setColor("White and brown");
+		d.setName("Zara");
+		
+		Dog d1 =new Dog();
+		d1.setAge(2);
+		d1.setBreed("Lab");
+		d1.setColor("white");
+		d1.setName("Bluffy");
+		
+		Dog b = hm.put("1",d);
+		System.out.println(b);
+	
+
+	}
+
+}
